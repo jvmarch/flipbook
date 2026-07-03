@@ -1,4 +1,4 @@
-const url = "https://bejewelled-croquembouche-1f22fd.netlify.app/feridas.pdf";
+const url = "https://bejewelled-croquembouche-1f22fd.netlify.app/";
 
 // CONFIGURA O WORKER (ESSENCIAL NO GITHUB PAGES)
 pdfjsLib.GlobalWorkerOptions.workerSrc =
