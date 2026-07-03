@@ -1,4 +1,4 @@
-const url = "COLE_AQUI_SEU_LINK_DO_PDF";
+const url = "https://bejewelled-croquembouche-1f22fd.netlify.app/feridas.pdf";
 
 let pdfDoc = null;
 let pageNum = 1;
