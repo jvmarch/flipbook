@@ -1,23 +1,29 @@
 const url = "https://bejewelled-croquembouche-1f22fd.netlify.app/feridas.pdf";
 
+// CONFIGURA O WORKER (ESSENCIAL NO GITHUB PAGES)
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
 let pdfDoc = null;
 let pageNum = 1;
 
 const canvas = document.getElementById("pdf-render");
 const ctx = canvas.getContext("2d");
 
-// carrega o PDF
+// CARREGA PDF
 pdfjsLib.getDocument(url).promise.then(pdf => {
   pdfDoc = pdf;
   renderPage(pageNum);
+}).catch(err => {
+  console.error("Erro ao carregar PDF:", err);
 });
 
 function renderPage(num) {
   pdfDoc.getPage(num).then(page => {
     const viewport = page.getViewport({ scale: 1.5 });
 
-    canvas.height = viewport.height;
     canvas.width = viewport.width;
+    canvas.height = viewport.height;
 
     page.render({
       canvasContext: ctx,
